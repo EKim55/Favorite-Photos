@@ -65,7 +65,7 @@
                                     <action selector="takePhoto:" destination="hQG-j7-lzj" eventType="touchUpInside" id="tQP-KA-XeF"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rm1-ch-bc7">
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rm1-ch-bc7">
                                 <rect key="frame" x="36" y="40" width="303" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="op9-Lq-RDg"/>
