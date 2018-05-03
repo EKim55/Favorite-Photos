@@ -15,6 +15,9 @@
 		0A881E0020976E78009BD0F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A881DFF20976E78009BD0F3 /* GoogleService-Info.plist */; };
 		0A881E0220977184009BD0F3 /* FavoritePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A881E0120977184009BD0F3 /* FavoritePhotoViewController.swift */; };
 		0A881E04209771A1009BD0F3 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A881E03209771A1009BD0F3 /* PhotoListViewController.swift */; };
+		0AD20617209B5B920003BC6B /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD20616209B5B920003BC6B /* PhotoViewCell.swift */; };
+		0AD20619209B603B0003BC6B /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD20618209B603B0003BC6B /* ImageUtils.swift */; };
+		0AD2061B209B61740003BC6B /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2061A209B61740003BC6B /* ImagePickerViewController.swift */; };
 		A844F4BEF0EB864DAB13F645 /* Pods_Favorite_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE009000C40E82F3928F6BEC /* Pods_Favorite_Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		0A881DFF20976E78009BD0F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A881E0120977184009BD0F3 /* FavoritePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotoViewController.swift; sourceTree = "<group>"; };
 		0A881E03209771A1009BD0F3 /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
+		0AD20616209B5B920003BC6B /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		0AD20618209B603B0003BC6B /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		0AD2061A209B61740003BC6B /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		ADFD0FDEE79AD57873B85F4D /* Pods-Favorite Photos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.debug.xcconfig"; sourceTree = "<group>"; };
 		C58E7D82B8A42DDE1FC272A3 /* Pods-Favorite Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.release.xcconfig"; sourceTree = "<group>"; };
 		EE009000C40E82F3928F6BEC /* Pods_Favorite_Photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favorite_Photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +82,9 @@
 				0A881DF920976D18009BD0F3 /* Info.plist */,
 				0A881E0120977184009BD0F3 /* FavoritePhotoViewController.swift */,
 				0A881E03209771A1009BD0F3 /* PhotoListViewController.swift */,
+				0AD20616209B5B920003BC6B /* PhotoViewCell.swift */,
+				0AD20618209B603B0003BC6B /* ImageUtils.swift */,
+				0AD2061A209B61740003BC6B /* ImagePickerViewController.swift */,
 			);
 			path = "Favorite Photos";
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -208,6 +218,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -232,6 +243,9 @@
 				0A881E04209771A1009BD0F3 /* PhotoListViewController.swift in Sources */,
 				0A881E0220977184009BD0F3 /* FavoritePhotoViewController.swift in Sources */,
 				0A881DEE20976D17009BD0F3 /* AppDelegate.swift in Sources */,
+				0AD20617209B5B920003BC6B /* PhotoViewCell.swift in Sources */,
+				0AD20619209B603B0003BC6B /* ImageUtils.swift in Sources */,
+				0AD2061B209B61740003BC6B /* ImagePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

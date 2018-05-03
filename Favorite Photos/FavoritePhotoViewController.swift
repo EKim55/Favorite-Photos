@@ -9,33 +9,43 @@
 import UIKit
 import Firebase
 
-class FavoritePhotoViewController: UIViewController {
+class FavoritePhotoViewController: ImagePickerViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
     
     var storageRef: StorageReference!
+    var photoDocRef: DocumentReference!
+    var photoListener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storageRef = Storage.storage().reference(withPath: "favorite")
+        photoDocRef = Firestore.firestore().collection("favorite").document("photo")
     }
     
-    @IBAction func takePhoto(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
-        
-        present(imagePicker, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photoListener = photoDocRef.addSnapshotListener({ (snapshot, error) in
+            if let error = error {
+                print("Error getting the Firestore document \(error.localizedDescription)")
+            }
+            if let url = snapshot?.get("url") as? String {
+                print("Loading image from url")
+                ImageUtils.load(imageView: self.imageView, from: url)
+            }
+        })
     }
     
-    func uploadImage(_ data: Data?) {
-        guard let data = data else { return }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //    if photoListener != nil {
+        photoListener.remove()
+        //    }
+    }
+    
+    override func uploadImage(_ image: UIImage) {
+        guard let data = UIImageJPEGRepresentation(image, 0.5) else { return }
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
         
@@ -54,23 +64,17 @@ class FavoritePhotoViewController: UIViewController {
         uploadTask.observe(StorageTaskStatus.success) { (snapshot) in
             print("Your upload is finished")
             self.progressView.isHidden = true
+            
+            self.storageRef.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print("Error getting the download url. \(error.localizedDescription)")
+                }
+                if let url = url {
+                    print("Saving the url \(url.absoluteString)")
+                    self.photoDocRef.setData(["url" : url.absoluteString])
+                }
+            })
         }
     }
 }
 
-// MARK: UIImagePicker controller delegate methods
-
-extension FavoritePhotoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //self.imageView.image = image
-            uploadImage(UIImageJPEGRepresentation(image, 0.5))
-        }
-        picker.dismiss(animated: true)
-    }
-}
